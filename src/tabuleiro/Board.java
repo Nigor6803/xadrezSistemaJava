@@ -30,4 +30,12 @@ public class Board {
 	public void setColuna(Integer coluna) {
 		this.coluna = coluna;
 	}
+	
+	public Peca peca(Integer linha, Integer coluna) {
+		return pecas[linha][coluna];
+	}
+	
+	public Peca peca(Posicao poiscao) {
+		return pecas[poiscao.getLinha()][poiscao.getColuna()];
+	}
 }
