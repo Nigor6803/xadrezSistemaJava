@@ -3,7 +3,6 @@ package xadrez;
 import pecaXadrez.Rei;
 import pecaXadrez.Torre;
 import tabuleiro.Board;
-import tabuleiro.Posicao;
 
 public class PartidaDeXadrez{
 		
@@ -24,9 +23,13 @@ public class PartidaDeXadrez{
 		return mat;
 	}
 	
+	private void novoLocalDePeca(char coluna, int linha, PecaDeXadrez peca) {
+		board.lugarDaPeca(peca,new XadrezPosicao(coluna, linha).ToPosicao());
+	}
+	
 	public void setupInicial() {
-		board.lugarDaPeca(new Torre(board, Cor.BRANCO), new Posicao(2,1));
-		board.lugarDaPeca(new Rei(board, Cor.PRETO), new Posicao(0,4));
-		board.lugarDaPeca(new Rei(board, Cor.BRANCO), new Posicao(7,4));
+		novoLocalDePeca('b',6,new Torre(board, Cor.BRANCO));
+		novoLocalDePeca('e',8,new Rei(board, Cor.PRETO));
+		novoLocalDePeca('e',1,new Rei(board, Cor.BRANCO));
 	}
 }
